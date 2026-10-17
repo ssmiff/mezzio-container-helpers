@@ -31,6 +31,7 @@
         "friendsofphp/php-cs-fixer": "^3.95",
         "phpunit/phpunit": "^11.5",
         "psalm/plugin-phpunit": "^0.19.5",
+        "squizlabs/php_codesniffer": "^4.0",
         "vimeo/psalm": "^6.13"
     },
     "autoload": {
@@ -59,7 +60,10 @@
         ],
         "static-analysis": "psalm --no-cache --stats",
         "test": "phpunit --colors=always",
-        "cs-check": "php-cs-fixer fix --dry-run --diff",
+        "cs-check": [
+            "php-cs-fixer fix --dry-run --diff",
+            "phpcs"
+        ],
         "cs-fix": "php-cs-fixer fix"
     }
 }

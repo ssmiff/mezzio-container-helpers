@@ -56,7 +56,8 @@ final class ConstructorResolverTest extends TestCase
 
     public function testConfigValueFallsBackToItsDefault(): void
     {
-        $object = new ConstructorResolver()->plan(NeedsMixed::class)->instantiate($this->container(), ['apiKey' => 'k']);
+        $plan = new ConstructorResolver()->plan(NeedsMixed::class);
+        $object = $plan->instantiate($this->container(), ['apiKey' => 'k']);
 
         self::assertSame('fallback', $object->appName);
     }
@@ -87,7 +88,8 @@ final class ConstructorResolverTest extends TestCase
 
     public function testArgumentsAreKeyedByParameterName(): void
     {
-        $arguments = new ConstructorResolver()->plan(NeedsMixed::class)->arguments($this->container(), ['apiKey' => 'k']);
+        $plan = new ConstructorResolver()->plan(NeedsMixed::class);
+        $arguments = $plan->arguments($this->container(), ['apiKey' => 'k']);
 
         self::assertSame(['greeter', 'appName', 'apiKey'], array_keys($arguments));
     }
