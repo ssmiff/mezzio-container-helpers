@@ -3,7 +3,14 @@
     "description": "Attribute-driven constructor injection for Mezzio and Laminas service manager factories, with per-parameter overrides.",
     "type": "library",
     "license": "MIT",
-    "keywords": ["mezzio", "laminas", "container", "factory", "attributes", "dependency-injection"],
+    "keywords": [
+        "mezzio",
+        "laminas",
+        "container",
+        "factory",
+        "attributes",
+        "dependency-injection"
+    ],
     "homepage": "https://github.com/ssmiff/mezzio-container-helpers",
     "authors": [
         {
@@ -21,6 +28,7 @@
         "psr/container": "^1.1 || ^2.0"
     },
     "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.95",
         "phpunit/phpunit": "^11.5",
         "psalm/plugin-phpunit": "^0.19.5",
         "vimeo/psalm": "^6.13"
@@ -45,10 +53,13 @@
     },
     "scripts": {
         "check": [
+            "@cs-check",
             "@static-analysis",
             "@test"
         ],
         "static-analysis": "psalm --no-cache --stats",
-        "test": "phpunit --colors=always"
+        "test": "phpunit --colors=always",
+        "cs-check": "php-cs-fixer fix --dry-run --diff",
+        "cs-fix": "php-cs-fixer fix"
     }
 }

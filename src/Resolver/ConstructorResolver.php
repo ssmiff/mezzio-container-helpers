@@ -47,7 +47,7 @@ final class ConstructorResolver
         return new ConstructorPlan($class, $sources, $optional);
     }
 
-    private static function source(ReflectionParameter $parameter): ParameterSource|null
+    private static function source(ReflectionParameter $parameter): ?ParameterSource
     {
         foreach ($parameter->getAttributes(ParameterSource::class, ReflectionAttribute::IS_INSTANCEOF) as $attribute) {
             return $attribute->newInstance();

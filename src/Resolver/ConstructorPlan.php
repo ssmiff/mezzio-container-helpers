@@ -25,9 +25,7 @@ final readonly class ConstructorPlan
      * @param array<string, ParameterSource|null> $sources
      * @param list<string> $optional
      */
-    public function __construct(public string $class, public array $sources, public array $optional = [])
-    {
-    }
+    public function __construct(public string $class, public array $sources, public array $optional = []) {}
 
     /**
      * @param array<string, mixed> $overrides

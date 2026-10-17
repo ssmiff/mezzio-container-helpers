@@ -10,9 +10,7 @@ use Ssmiff\MezzioContainerHelpers\Attribute\ParameterSource;
 
 final readonly class ContainerService implements ParameterSource
 {
-    public function __construct(public string $id)
-    {
-    }
+    public function __construct(public string $id) {}
 
     #[Override]
     public function resolve(ContainerInterface $container): mixed

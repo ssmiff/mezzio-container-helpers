@@ -12,9 +12,7 @@ use Ssmiff\MezzioContainerHelpers\Support\Config;
 #[Attribute(Attribute::TARGET_PARAMETER | Attribute::TARGET_PROPERTY)]
 final readonly class ConfigValue implements ParameterSource
 {
-    public function __construct(public string $path, public mixed $default = null)
-    {
-    }
+    public function __construct(public string $path, public mixed $default = null) {}
 
     #[Override]
     public function resolve(ContainerInterface $container): mixed

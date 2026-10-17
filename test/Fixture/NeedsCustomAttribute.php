@@ -9,6 +9,5 @@ final readonly class NeedsCustomAttribute
     public function __construct(
         #[UseGreeter]
         public object $greeter,
-    ) {
-    }
+    ) {}
 }

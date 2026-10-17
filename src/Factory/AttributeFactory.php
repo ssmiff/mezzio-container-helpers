@@ -17,7 +17,7 @@ use function sprintf;
 final readonly class AttributeFactory implements FactoryInterface
 {
     #[Override]
-    public function __invoke(ContainerInterface $container, $requestedName, array|null $options = null): object
+    public function __invoke(ContainerInterface $container, $requestedName, ?array $options = null): object
     {
         if (! class_exists($requestedName)) {
             throw new InvalidArgumentException(sprintf('Class %s does not exist.', $requestedName));

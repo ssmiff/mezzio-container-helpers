@@ -14,6 +14,5 @@ final readonly class NeedsMixed
         public string $appName,
         public string $apiKey,
         public int $retries = 3,
-    ) {
-    }
+    ) {}
 }

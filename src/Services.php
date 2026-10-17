@@ -17,7 +17,7 @@ final readonly class Services
      * @param class-string<T> $type
      * @return T
      */
-    public static function get(ContainerInterface $container, string $type, string|null $id = null): object
+    public static function get(ContainerInterface $container, string $type, ?string $id = null): object
     {
         $id ??= $type;
 
