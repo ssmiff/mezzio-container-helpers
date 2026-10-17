@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<psalm
+    cacheDirectory="./.psalm-cache"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="https://getpsalm.org/schema/config"
+    xsi:schemaLocation="https://getpsalm.org/schema/config vendor/vimeo/psalm/config.xsd"
+    errorLevel="1"
+    phpVersion="8.5"
+    findUnusedPsalmSuppress="true"
+    findUnusedCode="true"
+>
+    <projectFiles>
+        <directory name="src"/>
+        <directory name="test"/>
+        <ignoreFiles>
+            <directory name="vendor"/>
+        </ignoreFiles>
+    </projectFiles>
+    <issueHandlers>
+        <MixedAssignment>
+            <errorLevel type="suppress">
+                <file name="src/Resolver/ConstructorPlan.php"/>
+            </errorLevel>
+        </MixedAssignment>
+        <PossiblyUnusedMethod>
+            <errorLevel type="suppress">
+                <directory name="test/Fixture"/>
+            </errorLevel>
+        </PossiblyUnusedMethod>
+        <PossiblyUnusedProperty>
+            <errorLevel type="suppress">
+                <directory name="test/Fixture"/>
+            </errorLevel>
+        </PossiblyUnusedProperty>
+    </issueHandlers>
+    <plugins>
+        <pluginClass class="Psalm\PhpUnitPlugin\Plugin"/>
+    </plugins>
+</psalm>

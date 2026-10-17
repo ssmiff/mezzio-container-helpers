@@ -1,0 +1,54 @@
+{
+    "name": "ssmiff/mezzio-container-helpers",
+    "description": "Attribute-driven constructor injection for Mezzio and Laminas service manager factories, with per-parameter overrides.",
+    "type": "library",
+    "license": "MIT",
+    "keywords": ["mezzio", "laminas", "container", "factory", "attributes", "dependency-injection"],
+    "homepage": "https://github.com/ssmiff/mezzio-container-helpers",
+    "authors": [
+        {
+            "name": "Scott Smith",
+            "email": "scott@ssmiff.uk"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/ssmiff/mezzio-container-helpers/issues",
+        "source": "https://github.com/ssmiff/mezzio-container-helpers"
+    },
+    "require": {
+        "php": "~8.5.0",
+        "laminas/laminas-servicemanager": "^3.22",
+        "psr/container": "^1.1 || ^2.0"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^11.5",
+        "psalm/plugin-phpunit": "^0.19.5",
+        "vimeo/psalm": "^6.13"
+    },
+    "autoload": {
+        "psr-4": {
+            "Ssmiff\\MezzioContainerHelpers\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Ssmiff\\MezzioContainerHelpers\\Test\\": "test/"
+        }
+    },
+    "extra": {
+        "laminas": {
+            "config-provider": "Ssmiff\\MezzioContainerHelpers\\ConfigProvider"
+        }
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "scripts": {
+        "check": [
+            "@static-analysis",
+            "@test"
+        ],
+        "static-analysis": "psalm --no-cache --stats",
+        "test": "phpunit --colors=always"
+    }
+}
